@@ -22,15 +22,16 @@
     body{
       background-color:
       <?php
-        while($row = mysqli_fetch_array($result)){
-          $kuka[] = $row["kuka"];
+        while($row = mysqli_fetch_array($result) and $counter < 1){
           $alkuperä[] = $row["alkuperä"];
-          $mietelause[] = $row["mietelause"]; 
+          $counter=0; 
         
-          if ($alkuperä[1] == "Idän filosofit") {
+          if ($alkuperä[1] == "Antiikin Kreikka") {
             echo "green";
+            $counter++;
           } else {
             echo "blue";
+            $counter++;
           }
         }
       ?>
@@ -45,6 +46,10 @@
     <p>
       <span class="quote">"</span>
         <?php
+        while($row = mysqli_fetch_array($result)){
+          $kuka[] = $row["kuka"];
+          $mietelause[] = $row["mietelause"];
+        }
           echo $mietelause[1];
         ?>
       <span class="quote">"</span>
