@@ -22,33 +22,38 @@
     body{
       background-color:
       <?php
-        while($row = mysqli_fetch_array($result) < 1){
-          if ($row[1] == "Idän filosofit") {
+        while($row = mysqli_fetch_array($result)){
+          $kuka[] = $row["kuka"];
+          $alkuperä[] = $row["alkuperä"];
+          $mietelause[] = $row["mietelause"]; 
+        
+          if ($alkuperä[1] == "Idän filosofit") {
             echo "green";
           } else {
             echo "blue";
           }
         }
-      ?>;
+      ?>
+      ;
     }
   </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Mietelause</h1>
-  <p>
-    <?php
-      print_r($row);
-      while($row = mysqli_fetch_array($result)){
-        echo "$row[mietelause]";
-      }
-    ?>
-  </p>
-  <h2>
-    <?php
-      while($row = mysqli_fetch_array($result)){
-        echo "$row[kuka]";
-      }
-    ?>  
-  </h2>
+  <div class="content">
+    <h1>Mietelause</h1>
+    <p>
+      <span class="quote">"</span>
+        <?php
+          echo $mietelause[1];
+        ?>
+      <span class="quote">"</span>
+    </p>
+    <h2>
+      <?php
+        echo $kuka[1];
+      ?>  
+    </h2>
+  </div>
 </body>
 </html>
