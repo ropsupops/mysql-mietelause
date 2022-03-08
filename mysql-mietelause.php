@@ -22,18 +22,32 @@
     body{
       background-color:
       <?php
-        if ($row[0] == "Idän filosofit") {
-          echo "green";
-        } else {
-          echo "blue";
+        while($row = mysqli_fetch_array($result)){
+          if ($row[0] == "Idän filosofit") {
+            echo "green";
+          } else {
+            echo "blue";
+          }
         }
       ?>;
     }
   </style>
 </head>
 <body>
-
-
-
+  <h1>Mietelause</h1>
+  <p>
+    <?php
+      while($row = mysqli_fetch_array($result)){
+        echo "$row[0]";
+      }
+    ?>
+  </p>
+  <h2>
+    <?php
+      while($row = mysqli_fetch_array($result)){
+        echo "$row[0]";
+      }
+    ?>  
+  </h2>
 </body>
 </html>
