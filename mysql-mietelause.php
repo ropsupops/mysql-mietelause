@@ -23,7 +23,7 @@
       background-color:
       <?php
         while($row = mysqli_fetch_array($result)){
-          if ($row[0] == "Idän filosofit") {
+          if ($row[4] == "Idän filosofit") {
             echo "green";
           } else {
             echo "blue";
@@ -38,14 +38,14 @@
   <p>
     <?php
       while($row = mysqli_fetch_array($result)){
-        echo "$row[0]";
+        echo "$row[3]";
       }
     ?>
   </p>
   <h2>
     <?php
       while($row = mysqli_fetch_array($result)){
-        echo "$row[0]";
+        echo "$row[1]";
       }
     ?>  
   </h2>
