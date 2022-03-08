@@ -7,7 +7,7 @@
 
   mysqli_set_charset($tietokantayhteys,"utf8-fi");
 
-  $sql = "SELECT * OR BY RAND() FROM roope_mietelauseet";
+  $sql = "SELECT * FROM roope_mietelauseet ORDER BY RAND()";
   $result = mysqli_query($tietokantayhteys, $sql);
 
   mysqli_query($tietokantayhteys, $sql)
@@ -22,8 +22,8 @@
     body{
       background-color:
       <?php
-        while($row = mysqli_fetch_array($result)){
-          if ($row[4] == "Idän filosofit") {
+        while($row = mysqli_fetch_array($result) < 1){
+          if ($row[1] == "Idän filosofit") {
             echo "green";
           } else {
             echo "blue";
@@ -37,15 +37,16 @@
   <h1>Mietelause</h1>
   <p>
     <?php
+      print_r($row);
       while($row = mysqli_fetch_array($result)){
-        echo "$row[3]";
+        echo "$row[mietelause]";
       }
     ?>
   </p>
   <h2>
     <?php
       while($row = mysqli_fetch_array($result)){
-        echo "$row[1]";
+        echo "$row[kuka]";
       }
     ?>  
   </h2>
