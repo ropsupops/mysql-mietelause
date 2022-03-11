@@ -41,7 +41,7 @@
       ;
     }
   </style>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <div class="content">
