@@ -5,6 +5,9 @@ body{
 .content{
     text-align: center;
     margin-top: 5em;
+    background-color: lightgray;
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
 h1{
@@ -22,4 +25,8 @@ p{
 .quote{
     font-weight: bold;
     font-size: 2em;
+}
+
+#exception{
+    text-align: right;
 }

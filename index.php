@@ -5,7 +5,7 @@
     echo "Yhteysvirhe tietokantaan: " . mysqli_connect_error();
   }
 
-  mysqli_set_charset($tietokantayhteys,"utf8-fi");
+  mysqli_set_charset($tietokantayhteys,"utf8");
 
   $sql = "SELECT * FROM roope_mietelauseet ORDER BY RAND()";
   $result = mysqli_query($tietokantayhteys, $sql);
@@ -17,22 +17,25 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MySQL-mietelause</title>
   <style>
     body{
       background-color:
       <?php
-        while($row = mysqli_fetch_array($result) and $counter < 1){
-          $alkuperä[] = $row["alkuperä"];
-          $counter=0; 
-        
-          if ($alkuperä[1] == "Antiikin Kreikka") {
-            echo "green";
-            $counter++;
-          } else {
-            echo "blue";
-            $counter++;
-          }
+        while($row = mysqli_fetch_array($result)){
+          $aihe = $row["aihe"]; 
+          $kuka = $row["kuka"];
+          $mietelause = $row["mietelause"];
+          $alkuperä = $row["alkuperä"];
+        }
+
+        if ($aihe == "Filosofia") {
+          echo "lightgreen";
+        } else {
+          echo "lightblue";
         }
       ?>
       ;
@@ -46,17 +49,13 @@
     <p>
       <span class="quote">"</span>
         <?php
-        while($row = mysqli_fetch_array($result)){
-          $kuka[] = $row["kuka"];
-          $mietelause[] = $row["mietelause"];
-        }
-          echo $mietelause[1];
+          echo $mietelause;
         ?>
       <span class="quote">"</span>
     </p>
     <h2>
       <?php
-        echo $kuka[1];
+        echo $kuka . "<br>" . $alkuperä . "<br>" . $aihe;
       ?>  
     </h2>
   </div>
