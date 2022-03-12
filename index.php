@@ -12,6 +12,8 @@
 
   mysqli_query($tietokantayhteys, $sql)
     or die("Virhe: " . mysqli_error($tietokantayhteys));
+
+  mysqli_close($tietokantayhteys);
 ?>
 
 <!DOCTYPE html>
