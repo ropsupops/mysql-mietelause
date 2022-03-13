@@ -34,7 +34,9 @@
           $alkuperä = $row["alkuperä"];
         }
 
-        if ($aihe == "Filosofia") {
+        if ($alkuperä == "Arabian kampus") {
+          echo "lightpink";
+        } elseif ($alkuperä == "Idän filosofit") {
           echo "lightgreen";
         } else {
           echo "lightblue";
@@ -43,7 +45,7 @@
       ;
     }
   </style>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="content">
